@@ -22,7 +22,8 @@
   "dependencies": {
     "@arco-design/web-react": "^2.55.1",
     "electron-updater": "^6.1.1",
-    "react-router-dom": "^6.18.0"
+    "react-router-dom": "^6.18.0",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^1.1.0",

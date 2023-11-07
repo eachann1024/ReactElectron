@@ -5,8 +5,6 @@ import './samples/node-api'
 import './index.css'
 import 'virtual:uno.css'
 
-
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <App />
