@@ -5,8 +5,10 @@ import react from '@vitejs/plugin-react'
 import electron from 'vite-plugin-electron'
 import renderer from 'vite-plugin-electron-renderer'
 import UnoCSS from 'unocss/vite'
-import pkg from './package.json'
 import { vitePluginForArco } from '@arco-plugins/vite-react'
+import AutoImport from 'unplugin-auto-import/vite'
+import pkg from './package.json'
+
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -19,23 +21,32 @@ export default defineConfig(({ command }) => {
   return {
     resolve: {
       alias: {
-        '@': path.join(__dirname, 'src')
+        '@': path.join(__dirname, 'src'),
       },
     },
     plugins: [
       vitePluginForArco(),
       UnoCSS(),
       react(),
+      AutoImport({
+        dts: true,
+        imports: ['react', 'ahooks', 'react-router-dom', 'react-router'],
+        dirs: [
+          'src/store/**/use*.ts',
+        ],
+        eslintrc: {
+          enabled: true, // <-- this
+        },
+      }),
       electron([
         {
           // Main-Process entry file of the Electron App.
           entry: 'electron/main/index.ts',
           onstart(options) {
-            if (process.env.VSCODE_DEBUG) {
+            if (process.env.VSCODE_DEBUG)
               console.log(/* For `.vscode/.debug.script.mjs` */'[startup] Electron App')
-            } else {
+            else
               options.startup()
-            }
           },
           vite: {
             build: {
@@ -51,7 +62,7 @@ export default defineConfig(({ command }) => {
         {
           entry: 'electron/preload/index.ts',
           onstart(options) {
-            // Notify the Renderer-Process to reload the page when the Preload-Scripts build is complete, 
+            // Notify the Renderer-Process to reload the page when the Preload-Scripts build is complete,
             // instead of restarting the entire Electron App.
             options.reload()
           },
@@ -65,7 +76,7 @@ export default defineConfig(({ command }) => {
               },
             },
           },
-        }
+        },
       ]),
       // Use Node.js API in the Renderer-process
       renderer(),

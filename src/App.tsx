@@ -1,12 +1,14 @@
-import './App.css'
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+
 import Home from './pages/home'
+import AppHeader from './pages/appHeader'
 import Settings from './pages/settings'
 
 function App() {
   return (
 
     <Router>
+      <AppHeader />
       <nav>
         <Link to="/">Home</Link>
         <Link to="/settings">Settings</Link>

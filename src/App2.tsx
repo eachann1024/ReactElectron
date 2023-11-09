@@ -1,12 +1,10 @@
 import { useState } from 'react'
+import { Button } from '@arco-design/web-react'
 import logoVite from './assets/logo-vite.svg'
 import logoElectron from './assets/logo-electron.svg'
 import UpdateElectron from '@/components/update'
-import './App.css'
 
-import { Button } from '@arco-design/web-react'
-
-console.log('[App.tsx]', `Hello world from Electron ${process.versions.electron}!`)
+// console.log('[App.tsx]', `Hello world from Electron ${process.versions.electron}!`)
 
 function App() {
   const [count, setCount] = useState(0)

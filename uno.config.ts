@@ -1,6 +1,9 @@
-import { defineConfig } from 'unocss'
+import { defineConfig, presetUno } from 'unocss'
 
 export default defineConfig({
+  presets: [
+    presetUno(),
+  ],
   shortcuts: {
     // 定义边框圆角
     'br-t': 'rounded-t-[var(--br-t)]',

@@ -4,6 +4,7 @@ import App from './App'
 import './samples/node-api'
 import './index.css'
 import 'virtual:uno.css'
+import 'normalize.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

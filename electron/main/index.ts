@@ -9,9 +9,10 @@ import { update } from './update'
   const { app } = electron
 
   app.whenReady().then(() => {
-    installExtension(REDUX_DEVTOOLS)
+    /* installExtension(REDUX_DEVTOOLS)
       .then(name => console.log(`Added Extension:  ${name}`))
-      .catch(err => console.log('An error occurred: ', err))
+      .catch(err => console.log('An error occurred: ', err)) */
+    
   })
 })()
 
@@ -57,6 +58,8 @@ const indexHtml = join(process.env.DIST, 'index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
+    width: 420,
+    height: 600,
     title: 'Main window',
     icon: join(process.env.VITE_PUBLIC, 'favicon.ico'),
     webPreferences: {
