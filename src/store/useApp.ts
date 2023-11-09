@@ -1,13 +1,11 @@
 import { create } from 'zustand'
 
-/*
-const useBearStore = create((set) => ({
-	bears: 0,
-	increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-	removeAllBears: () => set({ bears: 0 }),
-})) */
+interface State {
+}
 
-const useAppStore = create(set => ({
+interface Action {
+}
+export const useAppStore = create<State & Action>(set => ({
   version: '',
   forceUpdate: false,
 }))
