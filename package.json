@@ -22,6 +22,7 @@
   "dependencies": {
     "@arco-design/web-react": "^2.55.1",
     "ahooks": "^3.7.8",
+    "dayjs": "^1.11.10",
     "electron-updater": "^6.1.1",
     "normalize.css": "^8.0.1",
     "react-router-dom": "^6.18.0",
